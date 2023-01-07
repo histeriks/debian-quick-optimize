@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 XS_APTIPV4="yes"
 XS_APTUPGRADE="yes"
 XS_BASHRC="yes"
@@ -30,7 +30,7 @@ XS_UTILS="yes"
 echo "Processing .... "
 
 if [ "$XS_LANG" == "" ] ; then
-    XS_LANG="en_US.UTF-8"
+XS_LANG="en_US.UTF-8"
 fi
 export LANG="$XS_LANG"
 export LC_ALL="C"
