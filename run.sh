@@ -26,6 +26,7 @@ XS_TCPFASTOPEN="yes"
 XS_TIMESYNC="yes"
 XS_TIMEZONE=""
 XS_UTILS="yes"
+XS_PSAD="yes"
 
 echo "Processing .... "
 
@@ -288,4 +289,10 @@ EOF
     echo "source /root/.bashrc" >> /root/.bash_profile
 fi
 
+if [ "$XS_PSAD" == "yes" ] ; then
+apt install psad -y
+sed -i -e "s/ENABLE_AUTO_IDS             N;/ENABLE_AUTO_IDS             Y;/g" /etc/psad/psad.conf
+systemctl enable psad
+systemctl start psad
+fi
 exit 0
